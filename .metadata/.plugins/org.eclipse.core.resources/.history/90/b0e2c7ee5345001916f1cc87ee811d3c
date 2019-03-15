@@ -1,0 +1,11 @@
+package com.jsp.dto;
+
+public class BbsFileDto {
+	
+	String fileId;
+	String bbsId;
+	String orgn_File_Nm;
+	String save_File_Nm;
+	
+	
+}

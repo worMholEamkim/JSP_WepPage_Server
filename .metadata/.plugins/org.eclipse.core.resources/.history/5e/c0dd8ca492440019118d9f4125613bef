@@ -1,0 +1,7 @@
+package com.jsp.controller;
+
+import javax.servlet.http.HttpServlet;
+
+public class BbsController extends HttpServlet {
+
+}

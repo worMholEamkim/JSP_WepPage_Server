@@ -1,0 +1,101 @@
+package com.jsp.dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
+import com.jsp.dto.BbsDto;
+
+public class BbsDao {
+
+	private static BbsDao bbsDao;
+	private Connection conn;
+	private PreparedStatement pstmt;
+	private int result;
+	private ResultSet rs;
+	private List<BbsDto> bbsList;
+
+
+private BbsDao() {
+}
+
+
+
+public static synchronized BbsDao getInstance() {
+	if(bbsDao == null) {
+		bbsDao = new BbsDao();
+}
+	return bbsDao;
+}
+	public Connection getConnect() {
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String id = "BIG";
+		String pw ="1234";
+		try {
+			Class.forName("cor.log.jdbc.driver.OracleDriver");
+			conn = DriverManager.getConnection(url, id, pw);
+		
+		} catch(ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return conn;
+	}
+
+	public List<BbsDto> selectAll(int startNum, int perpage) {
+		
+		conn = this.getConnect();
+		StringBuffer query = new StringBuffer();
+		query.append("SELECT T2.*");
+		query.append("FROM (SELECT ROWNUM R2, T.*");
+		query.append("FROM (SELECT BBSID, ID, substr(BBSTITLE, 1, 10) BBSTITLE,");
+		query.append("WHERE T2.R2 BETWEEN ? AND ?");
+		
+		try {
+			pstmt = conn.prepareStatement(query.toString());
+			pstmt.setString(1,  );
+			
+	
+		rs = pstmt.executeQuery();
+		while (rs.next()) {
+			BbsDto bbsDto = new BbsDto();
+			
+			bbsDto.setId(rs.getString("ID"));
+			bbsDto.setBbsId(rs.getString("BBSID"));
+			bbsDto.setBbsTitle(rs.getString("BBSTITLE"));
+			bbsDto.setBbsDate(rs.getString("BBSDATE"));
+			bbsDto.setBbsCategory(rs.getString("BBSCATEGORY"));
+			bbsDto.setBbsContent(rs.getString("BBSCONTENT"));
+			bbsDto.setBbsHit(rs.getString("BBSHIT"));
+	
+			bbsList.add(bbsDto);
+		}
+		} catch(SQLException e) {
+			e.printStackTrace();
+	}	return bbsList;
+}
+	public void close(Connection conn, PreparedStatement stmt, ResultSet rs) {
+		if (rs != null) {
+			try {
+				rs.close();
+			} catch (SQLException e) {
+			}
+		}
+		if (stmt != null) {
+			try {
+				stmt.close();
+			} catch (SQLException e) {
+			}
+		}
+		if (conn != null) {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+			}
+		}
+	}
+}

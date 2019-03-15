@@ -1,0 +1,12 @@
+package com.jsp.dto;
+
+public class BdsDto {
+	String id;
+	String bbsId;
+	String bbsTitle;
+	String bbsDate;
+	String bbsCategory;
+	String bbsContent;
+	String bbsHit;
+	
+}

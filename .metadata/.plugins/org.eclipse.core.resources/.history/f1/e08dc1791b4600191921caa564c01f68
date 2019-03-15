@@ -1,0 +1,29 @@
+package com.jsp.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.List;
+
+import com.jsp.dto.BbsDto;
+
+public class BbsFileDao {
+
+	private static BbsFileDao bbsFileDao;
+	private Connection conn;
+	private PreparedStatement pstmt;
+	private int result;
+	private ResultSet rs;
+
+
+private BbsFileDao() {
+	
+}
+
+public static synchronized BbsFileDao getInstance() {
+	if(bbsFileDao == null) {
+		bbsFileDao = new BbsFileDao();
+	}
+}
+
+}

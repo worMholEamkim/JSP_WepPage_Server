@@ -1,0 +1,17 @@
+
+3월 13, 2019 10:42:41.87 NEW SESSION
+3월 13, 2019 10:42:41.87 [2272:4176:0313/104241.875:ERROR:browser_process_sub_thread.cc(209)] Waited 16 ms for network service
+3월 13, 2019 10:59:34.13 [8064:6760:0313/105934.114:ERROR:audio_manager_base.cc(363)] Invalid audio output parameters received; using fake audio path: format: 0 channel_layout: 0 channels: 0 sample_rate: 0 frames_per_buffer: 0 effects: 0 mic_positions: 
+3월 13, 2019 13:48:23.33 [8064:1920:0313/134823.335:ERROR:CONSOLE(970)] "TypeError: Cannot read property 'pseudoType' of undefined TypeError: Cannot read property 'pseudoType' of undefined
+3월 13, 2019 13:48:23.34     at SDK.DOMNode._removeChild (chrome-devtools://devtools/bundled/shell.js:4290:28)
+3월 13, 2019 13:48:23.36     at SDK.DOMModel._childNodeRemoved (chrome-devtools://devtools/bundled/shell.js:4409:121)
+3월 13, 2019 13:48:23.37     at SDK.DOMDispatcher.childNodeRemoved (chrome-devtools://devtools/bundled/shell.js:4453:54)
+3월 13, 2019 13:48:23.37     at Protocol.InspectorBackend._DispatcherPrototype.dispatch (chrome-devtools://devtools/bundled/shell.js:3389:26)
+3월 13, 2019 13:48:23.38     at Protocol.SessionRouter._onMessage (chrome-devtools://devtools/bundled/shell.js:3345:41)
+3월 13, 2019 13:48:23.39     at SDK.MainConnection._dispatchMessage (chrome-devtools://devtools/bundled/shell.js:3475:17)
+3월 13, 2019 13:48:23.39     at Common.Object.dispatchEventToListeners (chrome-devtools://devtools/bundled/shell.js:488:23)
+3월 13, 2019 13:48:23.40     at innerDispatch (chrome-devtools://devtools/bundled/shell.js:970:98)
+3월 13, 2019 13:48:23.41     at Host.InspectorFrontendAPIImpl._dispatch (chrome-devtools://devtools/bundled/shell.js:970:1)
+3월 13, 2019 13:48:23.41     at DevToolsAPIImpl._dispatchOnInspectorFrontendAPI (chrome-devtools://devtools/bundled/devtools_compatibility.js:57:36)", source: chrome-devtools://devtools/bundled/shell.js (970)
+3월 13, 2019 14:13:21.86 [8064:6452:0313/141321.859:ERROR:browser_process_sub_thread.cc(209)] Waited 276 ms for network service
+3월 13, 2019 14:13:53.61 [3720:5876:0313/141353.618:ERROR:browser_process_sub_thread.cc(209)] Waited 148 ms for network service

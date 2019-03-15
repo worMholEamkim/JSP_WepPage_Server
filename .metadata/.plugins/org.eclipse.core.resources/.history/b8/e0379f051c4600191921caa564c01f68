@@ -1,0 +1,44 @@
+package com.jsp.dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class BbsFileDao {
+
+	private static BbsFileDao bbsFileDao;
+	private Connection conn;
+	private PreparedStatement pstmt;
+	private int result;
+	private ResultSet rs;
+
+
+private BbsFileDao() {
+	
+}
+
+public static synchronized BbsFileDao getInstance() {
+	if(bbsFileDao == null) {
+		bbsFileDao = new BbsFileDao();
+	}
+	return bbsFileDao;
+}
+
+public Connection getConnect() {
+	String url = "jdbc:oracle:thin:@localhost:1521:xe";
+	String id = "BIG";
+	String pw = "1234";
+	try {
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		conn = DriverManager.getConnection(url, id, pw);
+	} catch(ClassNotFoundException e) {
+		e.printStackTrace();
+	} catch(SQLException e) {
+		e.printStackTrace();
+	}
+	return conn;
+}
+
+}

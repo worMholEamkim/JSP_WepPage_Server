@@ -1,0 +1,6 @@
+package com.jsp.controller;
+
+public class JoinController extends HttpServlet{
+
+
+}
