@@ -76,7 +76,6 @@ public class Bbsupload2Controller extends HttpServlet {
 				file[i] = mRequest.getFile("bbs_file" + i);
 				changeName[i] = file[i].getName();
 				
-				
 				bbsfDto = new BbsFileDto();
 				bbsfDto.setOrgn_File_Nm(path + name[i]);
 				bbsfDto.setSave_File_Nm(path + changeName[i]);

@@ -9,13 +9,19 @@
 			 text-decoration:none;
 			 border-bottom-color:transparent;
 		}
+		li {
+			list-style:none;
+		}
+		button primary {
+			align:center;
+		}
 	</style>
 		<title>BBS</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
-		<body class="is-preload landing">
+		<body class="is-preload">
 						<!-- Table -->
 							<section>
 							<div align="center">
@@ -73,7 +79,7 @@
 											</tr>
 										</tfoot>
 									</table>
-									<ul class="row">
+									<ul class="row" align="center">
 										<li class="previous">
 											<c:if test='${startPage>1}'>
 												<!--  test 뒷부분에 조건을 단다  -->
@@ -82,7 +88,7 @@
 										</li>
 										<li>
 											<c:forEach begin="${startPage}" end="${endPage}" var="p">
-												<a href='bbs.do?page=${p}'  class="butten small">${p}</a>
+												<a href='bbs.do?page=${p}' class="butten primary">${p}</a>
 											</c:forEach>
 										</li>
 										<li class="next">
@@ -92,7 +98,7 @@
 										</li>
 									</ul>
 								</div>
-								<div class="row" align="center">
+								<div class="row">
 								<c:if test='${sessionID!=null}'>
 									<div>
 										<a href='bbsupload2.do' class="button primary">WRITE</a>
@@ -104,14 +110,14 @@
 						
 									<c:if test='${resultBbs >= 1}'>
 										<div class="w3-panel">
-											<button class="w3-button w3-black" width="10%">
+											<button class="button primary" width="10%">
 												글쓰기 성공
 											</button>
 										</div>
 									</c:if>
 									<c:if test='${resultBbs < 1}'>
 										<div class="w3-panel">
-											<button class="w3-button w3-red" width="10%">
+											<button class="button primary" width="10%">
 											 글쓰기 실패
 											</button>
 										</div>
@@ -119,14 +125,14 @@
 									
 									<c:if test='${deleteResult >= 1}'>
 										<div class="w3-panel">
-											<button class="w3-button w3-black" width="10%">
+											<button class="button primary" width="10%">
 												글삭제 성공
 											</button>
 										</div>
 									</c:if>
 									<c:if test='${deleteResult < 1}'>
 										<div class="w3-panel">
-											<button class="w3-button w3-red" width="10%">
+											<button class="button primary" width="10%">
 											 글삭제 실패
 											</button>
 										</div>
@@ -134,14 +140,14 @@
 									
 										<c:if test='${updateBbsResult >= 1}'>
 										<div class="w3-panel">
-											<button class="w3-button w3-black" width="10%">
+											<button class="button primary" width="10%">
 												글수정 성공
 											</button>
 										</div>
 									</c:if>
 									<c:if test='${updateBbsResult < 1}'>
 										<div class="w3-panel">
-											<button class="w3-button w3-red" width="10%">
+											<button class="button primary" width="10%">
 											 글수정 실패
 											</button>
 										</div>

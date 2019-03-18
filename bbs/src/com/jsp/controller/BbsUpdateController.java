@@ -44,14 +44,11 @@ public class BbsUpdateController extends HttpServlet {
 		String content = req.getParameter("content");
 		String bbsId = req.getParameter("bbsId");
 		
-		
 		BbsDto bbsDto = new BbsDto();
 		bbsDto.setBbsTitle(title);
 		bbsDto.setBbsCategory(category);
 		bbsDto.setBbsContent(content);
 		bbsDto.setBbsId(bbsId);
-		
-		
 		
 		TransactionDao tDao = TransactionDao.getInstance();
 		System.out.println("업데이트올 작동?");

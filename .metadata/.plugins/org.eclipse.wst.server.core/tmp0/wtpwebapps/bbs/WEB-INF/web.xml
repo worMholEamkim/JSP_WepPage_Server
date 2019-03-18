@@ -65,4 +65,28 @@
     <servlet-name>bbsupdate</servlet-name>
     <url-pattern>/bbsupdate.do</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>bbsfile</servlet-name>
+    <servlet-class>com.jsp.controller.BbsFileController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>bbsfile</servlet-name>
+    <url-pattern>/bbsFile.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>bbsdelete</servlet-name>
+    <servlet-class>com.jsp.controller.BbsDeleteController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>bbsdelete</servlet-name>
+    <url-pattern>/bbsdelete.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>logout</servlet-name>
+    <servlet-class>com.jsp.controller.LogoutController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>logout</servlet-name>
+    <url-pattern>/logout.do</url-pattern>
+  </servlet-mapping>
 </web-app>

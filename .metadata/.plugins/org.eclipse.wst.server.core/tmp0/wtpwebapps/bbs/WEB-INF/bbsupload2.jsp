@@ -1,41 +1,60 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Bootstrap Example</title>
+<title>게시판 업로드데스</title>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+<style>
+ 
+	box {
+		display: inline;
+		transition: border-color 0.2s ease-in-out;
+	    background: transparent;
+	    border-radius: 4px;
+	    border: solid 1px rgba(255, 255, 255, 0.3);
+	    color: inherit;
+	    text-decoration: none;
+	    
+
+	}
+	
+	a {
+		color:white;
+		text-decoration:none;
+		border-bottom-color:transparent;
+		
+	}
+	
+	
+</style>
+
 </head>
-<body style="background-color:#191A22;">
+<body class="is-preload">
 	<%
 		String sessionID = null;
 		if (session.getAttribute("sessionID") != null) {
 			sessionID = (String) session.getAttribute("sessionID");
 		}
 	%>
-	<div class="container">
-
-		<div class="w3-panel">
-
-			<button class="w3-button w3-block w3-button w3-indigo"><a href="bbs.do">게 시 판</a></button>
+	<div class="wrapper style1">
+		<div>
+			<button class="button primary fit"><a href="bbs.do">게 시 판</a></button>
 		</div>
 		<div align="center">
 			<form method="post" enctype="multipart/form-data" action="bbsupload2.do">
-				<table border=0px>
-					<tr>
-						<td><h7 style="color:white">카테고리 :</h7></td>
+				<table>
+					<tr class="box">
+						<td><h7>카테고리</h7></td>
 						<td colspan="4">
 						<select name="category"
-							style="width: 30%; padding: 12px 20px; font-size: 18px; margin: 10px 0px; background-color: white; box-sizing: border-box; border: 2px solid black;">
+							style="width: 30%; padding: 12px 20px; font-size: 18px; margin: 10px 0px;  box-sizing: border-box; border-radius: 4px;
+	    					border: solid 1px rgba(255, 255, 255, 0.3);">
 								<option value="math">수학</option>
 								<option value="enjoy">여행</option>
 								<option value="pic" selected>사진</option>
@@ -48,20 +67,22 @@
 						</td> 
 
 					</tr>
-					<tr>
-						<td><h5 style="color:white">제 목 :</h5></td>
+					<tr class="box">
+						<td><h7 style="color:white">제 목</h7></td>
 						<td colspan="4"><input name="title" type="text"
-							style="width: 90%; padding: 12px 20px; margin: 10px 0px; background-color: white; box-sizing: border-box; border: 2px solid black;">
+							style="width: 90%; padding: 12px 20px; margin: 10px 0px; box-sizing: border-box; border-radius: 4px;
+	    border: solid 1px rgba(255, 255, 255, 0.3);">
 						</td>
-					<tr>
-					<tr>
-						<td><h5 style="color:white">내 용 :</h5></td>
+					</tr>
+					<tr class="box">
+						<td><h7 style="color:white">내 용</h7></td>
 						<td colspan="4"><textarea name="content" rows="20" cols="80"
-								style="width: 90%; padding: 12px 20px; margin: 10px 0px; background-color: white; box-sizing: border-box; border: 2px solid black;"></textarea>
+								style="width: 90%; padding: 12px 20px; margin: 10px 0px; box-sizing: border-box; border-radius: 4px;
+	    border: solid 1px rgba(255, 255, 255, 0.3);"></textarea>
 						</td>
 					</tr>
 
-					<tr>
+					<tr class="box">
 
 						<script type="text/javascript">
 							var uf = "";
@@ -105,50 +126,55 @@
 
 						<td colspan="3"></td>
 
-						<td colspan="2">
-						<div class="w3-button w3-block w3-button w3-black" style="width: 30%;">
-						<input type="hidden" id="file_cnt"
-							name="file_cnt" value="1" style=""> 
-							<a href="javascript:file_add(50, 'class=input_write');"><b>첨부파일추가</b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<a href="javascript:file_delete();"><b>첨부파일삭제</b></a>
+						<td colspan="4">
+						<div style="width: 50%;">
+						<input class="row" type="hidden" id="file_cnt"
+							name="file_cnt" value="1" > 
+							<button class="button primary">
+								<a href="javascript:file_add(50, 'class=input_write');"><b>첨부파일추가</b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							</button>
+							<button class="button primary">
+								<a href="javascript:file_delete();"><b>첨부파일삭제</b></a>
+							</button>
 						</div>
 						</td>
 					</tr>
+					
 					<td colspan="3"></td>
-					<td colspan="2">
-					        <div id='file_add_form'
-								class="w3-button w3-block w3-button w3-indigo"
-								style="width: 80%;">
-								<input type=file name='bbs_file1' size='50' class='input_write'>
-							</div>
-					</td>
-					<tr>
-						<td colspan="5"><br>
-					</tr>
-					<tr>
-						<td colspan="3"></td>
-						<td colspan="2"><button type="submit"
-								class="w3-button w3-block w3-button w3-black"
-								style="width: 80%;">보내기</button>
+						
+						<td colspan="2">
+							<button type="submit"
+								class="button primary">보내기
+							</button>
+							<button class="button primary">
+								<a href='bbs.do'>게시판</a>
+							</button>
+						
+					
+							<button class="button primary">
+								<a href='home.do'>처음으로</a>
+							</button>
 						</td>
-					</tr>
+
 				</table>
 			</form>
 		</div>
-
-		<div class="w3-panel">
-			<button class="w3-button w3-block w3-button w3-indigo">
-				<a href='bbs.do'>게시판</a>
-			</button>
-		</div>
-
-		<div class="w3-panel">
-			<button class="w3-button w3-block w3-button w3-black">
-				<a href='home.do'>처음으로</a>
-			</button>
-		</div>
+		
 	</div>
 </body>
+<footer id="footer">
+					<ul class="icons">
+						<li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						<li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+						<li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</footer>	
 </html>
 
 

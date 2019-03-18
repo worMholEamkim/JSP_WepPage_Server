@@ -29,19 +29,21 @@
 									<li><a href="left-sidebar.html">Left Sidebar</a></li>
 									<li><a href="right-sidebar.html">Right Sidebar</a></li>
 									<li><a href="no-sidebar.html">No Sidebar</a></li>
-									<li>
-										<a href="#">Submenu</a>
-										<ul>
-											<li><a href="#">Option 1</a></li>
-											<li><a href="#">Option 2</a></li>
-											<li><a href="#">Option 3</a></li>
-											<li><a href="#">Option 4</a></li>
-										</ul>
-									</li>
+									
 								</ul>
 							</li>
 							<li><a href="bbs.do">게씨판</a></li>
-							<li>핵존잘 ${sessionScope.sessionID} 접속</li>
+							<c:choose>
+								<c:when test="${sessionID == null}">
+									<li>접속중인 사용자x</li>
+									<li><a href="login.do">로그인</a></li>
+								</c:when>
+								<c:otherwise>
+									<li><button class="button small"> ${sessionScope.sessionID}님 접속중</button> </li>
+									<li><a href="logout.do">로그아웃</a>
+									
+								</c:otherwise>
+							</c:choose>
 							<li ><a href="join.do" class="button primary" >Sign Up</a></li>
 						</ul>
 					</nav>

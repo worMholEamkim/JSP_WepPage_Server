@@ -10,4 +10,6 @@
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="com.jsp.dao.BbsDao"/>
 <fullyQualifiedTypeName name="com.jsp.dao.TransactionDao"/>
+<fullyQualifiedTypeName name="com.jsp.dao.BbsFileDao"/>
+<fullyQualifiedTypeName name="org.omg.CORBA.portable.OutputStream"/>
 </qualifiedTypeNameHistroy>

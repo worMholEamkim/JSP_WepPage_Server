@@ -322,6 +322,8 @@ public class BbsDao {
 		return -1;
 	}
 	
+	
+	
 	public int getTotalCount() {
 		
 		conn = this.getConnect();
